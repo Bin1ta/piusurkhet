@@ -50,6 +50,7 @@ class listing
         Route::get('search', [FrontendController::class, 'search'])->name('frontend.search');
 
         Route::post('sendMessage', [FrontendController::class, 'sendMessage'])->name('sendMessage');
+        Route::post('proposalForm', [FrontendController::class, 'proposalForm'])->name('proposalForm');
         Route::get('faq', [FrontendController::class, 'faq'])->name('faq');
 
     }

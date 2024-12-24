@@ -5,6 +5,7 @@ return [
     'videoGallery',
     'contactUs',
     'bill',
+    'proposalForm',
     'faq',
     'links',
     'subDivision',

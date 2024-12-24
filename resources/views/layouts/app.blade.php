@@ -78,6 +78,7 @@
 
 @stack('modals')
 @stack('script')
+@livewireScripts
 
 <script>
     $('.show_confirm').click(function (event) {
@@ -103,7 +104,6 @@
     });
 </script>
 
-@livewireScripts
 
 </body>
 </html>

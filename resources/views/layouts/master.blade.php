@@ -18,6 +18,8 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
     @stack('style')
+    @livewireStyles
+
 </head>
 <body>
 <button onclick="topFunction()" id="backToTop" title="Go to top">
@@ -106,6 +108,9 @@
         crossorigin="anonymous"></script>
 <script src="{{ asset('assets/frontend/js/app.js') }}"></script>
 @stack('script')
+
+@livewireScripts
+
 <script>
     document.addEventListener("DOMContentLoaded", function(){
         if (window.innerWidth > 992) {
@@ -147,6 +152,7 @@
         document.documentElement.scrollTop = 0;
     }
 </script>
+
 </body>
 
 </html>
