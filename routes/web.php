@@ -51,6 +51,7 @@ class listing
 
         Route::post('sendMessage', [FrontendController::class, 'sendMessage'])->name('sendMessage');
         Route::post('proposalForm', [FrontendController::class, 'proposalForm'])->name('proposalForm');
+        Route::post('applicationForm', [FrontendController::class, 'applicationForm'])->name('applicationForm');
         Route::get('faq', [FrontendController::class, 'faq'])->name('faq');
 
     }
