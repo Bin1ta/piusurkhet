@@ -83,7 +83,6 @@ class FrontendController extends BaseController
 
             return view('frontend.index', compact('officeDetail', 'tickerFiles', 'sliders', 'categories', 'galleries', 'noticePopups'));
         }
-
     }
 
     public function search()
@@ -104,7 +103,7 @@ class FrontendController extends BaseController
 
     public function documentCategory(DocumentCategory $documentCategory)
     {
-//        dd( $_GET['language']);
+        //        dd( $_GET['language']);
         $documentCategory->load([
             'mainDocuments' => function ($query) {
                 $query->with('mainDocumentCategory')->whereStatus(1)->orderByDesc('published_date');
@@ -139,9 +138,10 @@ class FrontendController extends BaseController
             case 'contactUs':
                 return view('frontend.contact');
                 break;
-                case 'proposalForm':
-                    return view('frontend.proposal-form');
-                    break;
+            case 'proposalForm':
+                $document= Document::where('proposal_status',1)->latest()->first();
+                return view('frontend.proposal-form',compact('document'));
+                break;
             case 'photoGallery':
                 $photoAlbums = PhotoGallery::with('photos')->latest()->get();
                 return view('frontend.gallery.gallery', compact('photoAlbums'));
@@ -282,7 +282,7 @@ class FrontendController extends BaseController
 
             $url = Str::substr($url, 0, $count - 2);
             return redirect($url . $lang ?? 'ne');
-//        dd('ads');
+            //        dd('ads');
         }
     }
 }

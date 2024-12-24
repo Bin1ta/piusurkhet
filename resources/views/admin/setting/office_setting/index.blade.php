@@ -54,13 +54,13 @@
 
                 <div class="col-md-6">
                     <div class="input-style-1">
-                        <label for="status" class="form-label">स्थिति अपडेट गर्नुहोस् *</label>
+                        <label for="status" class="form-label">सूचीकृत गर्नुहोस् *</label>
                         <div>
-                            <a href="{{ route('admin.officeSetting.applicationListUpdate',$officeSetting) }}" id="status-toggle">
+                            <a href="{{ route('admin.officeSetting.applicationListUpdate', $officeSetting) }}" id="status-toggle">
                                 @if($officeSetting->application_list == 1)
-                                    <i class="mdi mdi-check mdi-24px text-success"></i>
+                                    <i class="mdi mdi-check mdi-24px text-success">सूचीकृत सक्रिय छ</i> <!-- Registered/Listed -->
                                 @else
-                                    <i class="mdi mdi-window-close mdi-24px text-danger"></i>
+                                    <i class="mdi mdi-window-close mdi-24px text-danger">सूचीकृत सक्रिय छैन</i> <!-- Not Registered/Listed -->
                                 @endif
                             </a>
                         </div>
@@ -69,6 +69,7 @@
                         @enderror
                     </div>
                 </div>
+
 
 
                 <div class="col-md-6">

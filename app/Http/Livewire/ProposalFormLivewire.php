@@ -19,9 +19,11 @@ class ProposalFormLivewire extends Component
         'address' => null,
         'files' => []
     ];
-    public function mount()
+    public $document;
+    public function mount($document)
     {
         $this->form['files'][] = ['file_name' => '', 'file' => null];
+        $this->document = $document;
     }
 
     public function fileArrayIncrement()
@@ -71,6 +73,7 @@ class ProposalFormLivewire extends Component
         $this->reset('form');
         session()->flash('message', 'Proposal submitted successfully!');
     }
+
 
     public function render()
     {

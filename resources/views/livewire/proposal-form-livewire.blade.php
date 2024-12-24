@@ -1,6 +1,6 @@
 <div class="container my-4">
     <div class="card p-4 shadow-sm">
-        <h4 class="card-title mb-3">आवेदन फारम</h4>
+        <h4 class="card-title mb-3">{{ $document->title }}को फारम</h4>
 
         <form wire:submit.prevent="submit">
             <div class="row g-3">
@@ -30,7 +30,7 @@
 
                 <div class="col-md-4">
                     <label for="spouse_name" class="form-label">पति/पत्नीको नाम</label>
-                    <input type="spouse_name" id="spouse_name" class="form-control" placeholder="इमेल" wire:model="form.spouse_name">
+                    <input type="spouse_name" id="spouse_name" class="form-control" placeholder="पति/पत्नीको नाम" wire:model="form.spouse_name">
                 </div>
 
 
