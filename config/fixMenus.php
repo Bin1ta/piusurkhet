@@ -6,6 +6,7 @@ return [
     'contactUs',
     'bill',
     'proposalForm',
+    'applicationForm',
     'faq',
     'links',
     'subDivision',

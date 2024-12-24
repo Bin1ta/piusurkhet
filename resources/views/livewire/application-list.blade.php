@@ -1,6 +1,6 @@
 <div class="container my-4">
     <div class="card p-4 shadow-sm">
-        <h4 class="card-title mb-3">प्रस्ताव आव्हानको फारम</h4>
+        <h4 class="card-title mb-3">सुचिकृत फारम</h4>
 
         <form wire:submit.prevent="submit">
             <div class="row g-3">
@@ -29,8 +29,15 @@
 
 
                 <div class="col-md-4">
-                    <label for="spouse_name" class="form-label">पति/पत्नीको नाम</label>
-                    <input type="spouse_name" id="spouse_name" class="form-control" placeholder="इमेल" wire:model="form.spouse_name">
+                    <label for="organization_name" class="form-label">संस्थाको नाम</label>
+                    <input type="organization_name" id="organization_name" class="form-control" placeholder="संस्थाको नाम" wire:model="form.organization_name">
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <label for="organization_address" class="form-label">संस्थाको ठेगाना</label>
+                    <input type="organization_address" id="organization_address" class="form-control" placeholder="संस्थाको ठेगाना" wire:model="form.organization_address">
                 </div>
 
 

@@ -15,6 +15,7 @@ use App\Models\Link;
 use App\Models\OfficeDetail;
 use App\Models\PhotoGallery;
 use App\Models\ProposalForm;
+use App\Models\ApplicationList;
 use App\Models\Slider;
 use App\Models\Smuggling;
 use App\Models\SubDivision\SubDivision;
@@ -142,6 +143,10 @@ class FrontendController extends BaseController
                 case 'proposalForm':
                     return view('frontend.proposal-form');
                     break;
+                break;
+                case 'applicationForm':
+                    return view('frontend.application-list');
+                    break;
             case 'photoGallery':
                 $photoAlbums = PhotoGallery::with('photos')->latest()->get();
                 return view('frontend.gallery.gallery', compact('photoAlbums'));
@@ -257,6 +262,14 @@ class FrontendController extends BaseController
     public function proposalForm(StoreProposalForm $request)
     {
         ProposalForm::create($request->validated());
+
+        return back()->with('message', "Form Sent Successfully");
+    }
+
+
+    public function applicationForm(StoreProposalForm $request)
+    {
+        ApplicationList::create($request->validated());
 
         return back()->with('message', "Form Sent Successfully");
     }
