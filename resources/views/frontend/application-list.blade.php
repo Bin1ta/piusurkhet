@@ -8,24 +8,23 @@
                     <!-- input style start -->
                     <div class="card-style">
 
-                        {{-- @if($bidSetting->is_bid_open == 1) --}}
-                           @livewire('application-list')
+                        @if ($header->application_list == 1)
+                        @livewire('application-list')
 
-{{-- @else --}}
-                            {{-- <h3 class="mt-4 text-center">!!! सुचिकृत फारम खुलेको छैन !!!</h3>
-                        @endif --}}
+                        @else
+                         <h3 class="mt-4 text-center">!!! सुचिकृत फारम खुलेको छैन !!!</h3>
+                        @endif
 
 
 
+
+                    </div>
+                    <!-- end card -->
 
                 </div>
-                <!-- end card -->
 
             </div>
-
+            <!-- end row -->
         </div>
-        <!-- end row -->
     </div>
-    </div>
-
 @endsection
