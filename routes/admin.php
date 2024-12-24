@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\{BillController,
     ExEmployeeController,
     FaqController,
     FileController,
+    FiscalYearController,
     LinkController,
     MenuController,
     OfficeDetailController,
@@ -37,6 +38,8 @@ Route::get('/dashboard', DashboardController::class)->name('dashboard');
 Route::prefix('/setting')->group(function () {
     Route::resource('officeSetting', OfficeSettingController::class)->only('index', 'update');
     Route::resource('officeDetail', OfficeDetailController::class);
+    Route::get('officeSetting/{officeSetting}/applicationListUpdate',[OfficeSettingController::class,'applicationListUpdate'])->name('officeSetting.applicationListUpdate');
+
 });
 
 Route::prefix('profile')->as('profile.')->group(function () {
@@ -63,6 +66,7 @@ Route::resource('documentCategory', DocumentCategoryController::class);
 Route::get('documentCategory/{documentCategory}/document/{document}/updateStatus', [DocumentController::class, 'updateStatus'])->name('documentCategory.document.updateStatus');
 Route::get('documentCategory/{documentCategory}/document/{document}/markAsNew', [DocumentController::class, 'markAsNew'])->name('documentCategory.document.markAsNew');
 Route::get('documentCategory/{documentCategory}/document/{document}/popUp', [DocumentController::class, 'popUp'])->name('documentCategory.document.popUp');
+Route::get('documentCategory/{documentCategory}/document/{document}/proposalStatus', [DocumentController::class, 'proposalStatus'])->name('documentCategory.document.proposalStatus');
 Route::resource('documentCategory/{documentCategory}/document', DocumentController::class)->names('documentCategory.document');
 Route::get('documentCategory/{documentCategory}/category/{category}/showOnIndex', [CategoryController::class, 'showOnIndex'])->name('documentCategory.category.showOnIndex');
 Route::resource('documentCategory/{documentCategory}/category', CategoryController::class)->names('documentCategory.category');
@@ -105,4 +109,5 @@ Route::resource('color', ColorController::class);
 Route::get('chat', ChatController::class)->name('chat');
 
 Route::resource('officeSettingHeader', OfficeSettingHeaderController::class);
+Route::resource('fiscalYear', FiscalYearController::class);
 

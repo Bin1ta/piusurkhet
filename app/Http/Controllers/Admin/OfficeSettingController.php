@@ -7,6 +7,7 @@ use App\Http\Requests\Setting\UpdateOfficeSettingRequest;
 use App\Models\Employee;
 use App\Models\OfficeSetting;
 use App\Http\Controllers\Controller;
+use App\Models\FiscalYear;
 use App\Models\OfficeSettingHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -27,11 +28,11 @@ class OfficeSettingController extends BaseController
             '403 Forbidden | you are not allowed to access this resource'
         );
 
-        $employees=Employee::orderBy('position')->get();
-
+        $employees = Employee::orderBy('position')->get();
+        $fiscalYears = FiscalYear::latest()->get();
         $officeSetting = OfficeSetting::latest()->first();
         $officeSettingHeaders = OfficeSettingHeader::orderBy('position')->get();
-        return view('admin.setting.office_setting.index', compact('officeSetting','employees','officeSettingHeaders'));
+        return view('admin.setting.office_setting.index', compact('officeSetting', 'employees', 'officeSettingHeaders','fiscalYears'));
     }
 
 
@@ -72,5 +73,22 @@ class OfficeSettingController extends BaseController
             }
         }
     }
+
+    public function applicationListUpdate(OfficeSetting $officeSetting)
+    {
+        abort_if(
+            Gate::denies('office_setting_access'),
+            ResponseAlias::HTTP_FORBIDDEN,
+            '403 Forbidden | you are not allowed to access this resource'
+        );
+        $officeSetting->update([
+            'application_list' => !$officeSetting->application_list
+        ]);
+        toast('Updated Successfully', 'success');
+
+        return back();
+    }
+
+
 
 }

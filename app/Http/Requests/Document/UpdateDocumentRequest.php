@@ -39,7 +39,8 @@ class UpdateDocumentRequest extends FormRequest
                 'mark_as_new' => ['nullable', 'boolean'],
                 'document_category_id' => ['nullable', Rule::exists('document_categories', 'id')->withoutTrashed()],
                 'files' => ['nullable', 'array'],
-                'files.*' => ['file']
+                'files.*' => ['file'],
+                'proposal_status' => ['nullable', 'boolean'],
             ];
         } else {
             return [
@@ -53,7 +54,8 @@ class UpdateDocumentRequest extends FormRequest
                 'mark_as_new' => ['nullable', 'boolean'],
                 'document_category_id' => ['nullable', Rule::exists('document_categories', 'id')->withoutTrashed()],
                 'files' => ['nullable', 'array'],
-                'files.*' => ['file']
+                'files.*' => ['file'],
+                'proposal_status' => ['nullable', 'boolean'],
             ];
         }
     }

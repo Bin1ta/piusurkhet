@@ -33,7 +33,9 @@ class OfficeSetting extends Model
         'map_iframe',
         'facebook_iframe',
         'twitter_iframe',
-        'document_list_type'
+        'document_list_type',
+        'fiscal_year_id',
+        'application_list'
     ];
 
     public function setCoverPhotoAttribute($value)
@@ -77,6 +79,11 @@ class OfficeSetting extends Model
     public function officeSettingHeaders(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(OfficeSettingHeader::class);
+    }
+
+    public function fiscalYear(): BelongsTo
+    {
+        return $this->belongsTo(FiscalYear::class, 'fiscal_year_id');
     }
 
 }

@@ -111,6 +111,11 @@ class PermissionSeeder extends Seeder
             ['title' => "ex_employee_edit"],
             ['title' => "ex_employee_delete"],
 
+            ['title' => "fiscal_year_access"],
+            ['title' => "fiscal_year_create"],
+            ['title' => "fiscal_year_edit"],
+            ['title' => "fiscal_year_delete"],
+
         ];
 
         foreach ($permissions as $permission) {

@@ -57,6 +57,10 @@
                             <a class="{{request()->is('admin/setting/officeDetail*') ? 'active' : ''}}"
                                href="{{route('admin.officeDetail.index')}}"> कार्यालय विवरण </a>
                         </li>
+                        <li>
+                            <a class="{{request()->is('admin/setting/fiscalYear*') ? 'active' : ''}}"
+                               href="{{route('admin.fiscalYear.index')}}"> आर्थिक वर्ष </a>
+                        </li>
 
 
 

@@ -43,6 +43,7 @@
                             <th>SN</th>
                             <th>Title</th>
                             <th>Status</th>
+                            <th>Proposal Status</th>
                             <th>Mark As New</th>
                             <th>popUp</th>
                             <th>Action</th>
@@ -60,6 +61,18 @@
                                     @can('document_edit')
                                     <a href="{{route('admin.documentCategory.document.updateStatus',[$documentCategory,$document])}}">
                                         @if($document->status==1)
+                                            <i class="mdi mdi-check mdi-24px text-success"></i>
+                                        @else
+                                            <i class="mdi mdi-window-close mdi-24px text-danger"></i>
+                                        @endif
+
+                                    </a>
+                                    @endcan
+                                </td>
+                                <td>
+                                    @can('document_edit')
+                                    <a href="{{route('admin.documentCategory.document.proposalStatus',[$documentCategory,$document])}}">
+                                        @if($document->proposal_status==1)
                                             <i class="mdi mdi-check mdi-24px text-success"></i>
                                         @else
                                             <i class="mdi mdi-window-close mdi-24px text-danger"></i>

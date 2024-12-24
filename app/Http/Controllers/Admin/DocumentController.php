@@ -157,6 +157,24 @@ class DocumentController extends BaseController
         return back();
     }
 
+
+    public function proposalStatus(DocumentCategory $documentCategory, Document $document)
+    {
+        abort_if(
+            Gate::denies('document_edit'),
+            ResponseAlias::HTTP_FORBIDDEN,
+            '403 Forbidden | you are not allowed to access this resource'
+        );
+
+        $document->update([
+            'proposal_status' => !$document->proposal_status
+        ]);
+
+        toast('Updated Successfully', 'success');
+
+        return back();
+    }
+
     public function popUp(DocumentCategory $documentCategory, Document $document)
     {
         abort_if(

@@ -35,7 +35,8 @@ class Document extends Model
         'mark_as_new',
         'title_en',
         'description_en',
-        'publisher_en'
+        'publisher_en',
+        'proposal_status'
 
     ];
 

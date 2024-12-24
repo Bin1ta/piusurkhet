@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FiscalYear extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $dates=[
+    protected $dates = [
         'deleted_at',
         'created_at',
         'updated_at',
     ];
 
-    protected $fillable=[
-
+    protected $fillable = [
+        'year'
     ];
 }

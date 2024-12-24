@@ -28,6 +28,7 @@ class StoreDocumentRequest extends FormRequest
                 'description_en' => ['nullable'],
                 'status' => ['nullable', 'boolean'],
                 'popUp' => ['nullable', 'boolean'],
+                'proposal_status' => ['nullable', 'boolean'],
                 'mark_as_new' => ['nullable', 'boolean'],
                 'document_category_id' => ['nullable', Rule::exists('document_categories', 'id')->withoutTrashed()],
                 'files' => ['nullable', 'array'],
@@ -45,7 +46,8 @@ class StoreDocumentRequest extends FormRequest
                 'mark_as_new' => ['nullable', 'boolean'],
                 'document_category_id' => ['nullable', Rule::exists('document_categories', 'id')->withoutTrashed()],
                 'files' => ['nullable', 'array'],
-                'files.*' => ['file']
+                'files.*' => ['file'],
+                'proposal_status' => ['nullable', 'boolean'],
             ];
         }
     }

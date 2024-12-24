@@ -31,6 +31,46 @@
             @csrf
             @method('put')
             <div class="row">
+
+                <div class="col-md-6">
+                    <div class="input-style-1">
+                        <label for="fiscal_year_id">आर्थिक वर्ष *</label>
+                        <select name="fiscal_year_id" id="fiscal_year_id" class="form-control">
+                            <option value="">- - छान्नुहोस् - -</option>
+                            @foreach($fiscalYears as $fiscalYear)
+                                <option value="{{ $fiscalYear->id }}"
+                                    {{ old('fiscal_year_id', $officeSetting->fiscal_year_id ?? '') == $fiscalYear->id ? 'selected' : '' }}>
+                                    {{ $fiscalYear->year }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('fiscal_year_id')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="input-style-1">
+                        <label for="status" class="form-label">स्थिति अपडेट गर्नुहोस् *</label>
+                        <div>
+                            <a href="{{ route('admin.officeSetting.applicationListUpdate',$officeSetting) }}" id="status-toggle">
+                                @if($officeSetting->application_list == 1)
+                                    <i class="mdi mdi-check mdi-24px text-success"></i>
+                                @else
+                                    <i class="mdi mdi-window-close mdi-24px text-danger"></i>
+                                @endif
+                            </a>
+                        </div>
+                        @error('status')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
+                    </div>
+                </div>
+
+
                 <div class="col-md-6">
                     <div class="input-style-1">
                         <label for="office_name">कार्यालयको नाम *</label>
@@ -151,6 +191,7 @@
                             @foreach($employees as $employee)
                                 <option value="{{$employee->id}}" {{$officeSetting->chief_id==$employee->id ? 'selected' : ''}}>{{$employee->name}}</option>
                             @endforeach
+
                         </select>
                         @error('chief_id')
                         <p class="text-danger">{{$message}}</p>
