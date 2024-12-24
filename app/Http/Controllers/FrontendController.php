@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactMessageRequest;
+use App\Http\Requests\StoreProposalForm;
 use App\Models\Bill;
 use App\Models\ContactMessage;
 use App\Models\Document;
@@ -13,6 +14,7 @@ use App\Models\Faq;
 use App\Models\Link;
 use App\Models\OfficeDetail;
 use App\Models\PhotoGallery;
+use App\Models\ProposalForm;
 use App\Models\Slider;
 use App\Models\Smuggling;
 use App\Models\SubDivision\SubDivision;
@@ -137,6 +139,9 @@ class FrontendController extends BaseController
             case 'contactUs':
                 return view('frontend.contact');
                 break;
+                case 'proposalForm':
+                    return view('frontend.proposal-form');
+                    break;
             case 'photoGallery':
                 $photoAlbums = PhotoGallery::with('photos')->latest()->get();
                 return view('frontend.gallery.gallery', compact('photoAlbums'));
@@ -246,6 +251,14 @@ class FrontendController extends BaseController
         ContactMessage::create($request->validated());
 
         return back()->with('message', "Message Sent Successfully");
+    }
+
+
+    public function proposalForm(StoreProposalForm $request)
+    {
+        ProposalForm::create($request->validated());
+
+        return back()->with('message', "Form Sent Successfully");
     }
 
     public function languageChange($lang)
