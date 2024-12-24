@@ -264,6 +264,14 @@
                     </a>
                 </li>
             @endcan
+            <li class="nav-item {{request()->is('admin/applicationList/*') ? 'active': ''}}">
+                <a href="{{route('admin.applicationList.index')}}">
+            <span class="icon">
+                <i class="mdi  mdi-file-document"></i>
+            </span>
+                    <span class="text">सुचिकृत भएका सूचनाहरु</span>
+                </a>
+            </li>
             @can('faq_access')
                 <li class="nav-item {{request()->is('admin/faq*') ? 'active': ''}}">
                     <a href="{{route('admin.faq.index')}}">

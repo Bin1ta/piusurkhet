@@ -40,9 +40,9 @@ class ApplicationList extends Component
         $this->validate([
             'form.name' => ['required'],
             'form.phone' => ['required'],
-            'form.email' => ['required'],
-            'form.organization_name' => ['required'],
-            'form.organization_address' => ['required'],
+            'form.email' => ['nullable'],
+            'form.organization_name' => ['nullable'],
+            'form.organization_address' => ['nullable'],
             'form.address' => ['required'],
             'form.files.*.file_name' => ['nullable', 'string'],
             'form.files.*.file' => ['nullable', 'file'],

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{BillController,
+use App\Http\Controllers\Admin\{ApplicationListController, BillController,
     CategoryController,
     ChatController,
     ColorController,
@@ -98,6 +98,7 @@ Route::resource('faq', FaqController::class);
 //link
 Route::resource('link', LinkController::class);
 Route::resource('bill', BillController::class);
+Route::resource('applicationList', ApplicationListController::class);
 //file Deletes
 Route::resource('file', FileController::class)->only('destroy');
 

@@ -39,7 +39,7 @@ class ProposalFormLivewire extends Component
         $this->validate([
             'form.name' => ['required'],
             'form.phone' => ['required'],
-            'form.email' => ['required'],
+            'form.email' => ['nullable'],
             'form.spouse_name' => ['nullable'],
             'form.address' => ['required'],
             'form.files.*.file_name' => ['nullable', 'string'],
