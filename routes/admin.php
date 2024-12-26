@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\{ApplicationListController, BillController,
     OfficeSettingController,
     OfficeSettingHeaderController,
     PhotoGalleryController,
+    ProposalFormController,
     SliderController,
     SmugglingController,
     SubDivision\SubDivisionController,
@@ -99,6 +100,7 @@ Route::resource('faq', FaqController::class);
 Route::resource('link', LinkController::class);
 Route::resource('bill', BillController::class);
 Route::resource('applicationList', ApplicationListController::class);
+Route::resource('proposalForm', ProposalFormController::class);
 //file Deletes
 Route::resource('file', FileController::class)->only('destroy');
 

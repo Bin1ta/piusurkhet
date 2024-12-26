@@ -115,6 +115,11 @@
                                         <a href="{{route('admin.documentCategory.document.show', [$documentCategory,$document])}}" class="text-info">
                                             <i class="lni lni-list"></i>
                                         </a>
+                                        @if ($document && $document->proposal_status == 1)
+                                        <a href="{{route('admin.proposalForm.index')}}" class="text-info" title="प्रस्ताव आवहानहरु">
+                                            <i class="mdi mdi-file mdi-24px"></i>
+                                        </a>
+                                        @endif
                                         <form action="{{route('admin.documentCategory.document.destroy',[$documentCategory,$document])}}"
                                               method="POST">
                                             @csrf

@@ -4,7 +4,7 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="title mb-30">
-                    <h2>सुचिकृत फारम</h2>
+                    <h2>प्रस्ताव आवहानको फारम</h2>
                 </div>
             </div>
             <!-- end col -->
@@ -17,7 +17,7 @@
                             </li>
 
                             <li class="breadcrumb-item active" aria-current="page">
-                                सुचिकृत फारम
+                                प्रस्ताव आवहानको फारम
                             </li>
                         </ol>
                     </nav>
@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card-style mb-30">
-                <h6 class="mb-10">सुचिकृत फारमको  सुचि </h6>
+                <h6 class="mb-10">प्रस्ताव आवहानको  सुचि </h6>
 
                 <div class="table-wrapper table-responsive table-hover">
                     <table class="table">
@@ -42,43 +42,40 @@
                             <th><h6>ठेगाना</h6></th>
                             <th><h6>इमेल</h6></th>
                             <th><h6>फोन नं</h6></th>
-                            <th><h6>संस्थाको नाम</h6></th>
-                            <th><h6>संस्थाको ठेगाना</h6></th>
+                            <th><h6>पति/पत्नीको नाम</h6></th>
+
                             <th></th>
                         </tr>
                         <!-- end table row-->
                         </thead>
                         <tbody>
-                        @foreach($applicationLists as $applicationList)
+                        @foreach($proposalForms as $proposalForm)
                             <tr>
                                 <td>
                                     {{$loop->iteration}}
                                 </td>
 
                                 <td class="min-width">
-                                    <p>{{$applicationList->name ?? ''}}</p>
+                                    <p>{{$proposalForm->name ?? ''}}</p>
                                 </td>
 
                                 <td class="min-width">
-                                    <p>{{$applicationList->address ?? ''}}</p>
+                                    <p>{{$proposalForm->address ?? ''}}</p>
                                 </td>
                                 <td class="min-width">
-                                    <p>{{$applicationList->email?? ''}}</p>
+                                    <p>{{$proposalForm->email?? ''}}</p>
                                 </td>
                                 <td class="min-width">
-                                    <p>{{$applicationList->phone ?? ''}}</p>
+                                    <p>{{$proposalForm->phone ?? ''}}</p>
                                 </td>
                                 <td class="min-width">
-                                    <p>{{$applicationList->organization_name ?? ''}}</p>
+                                    <p>{{$proposalForm->spouse_name ?? ''}}</p>
                                 </td>
 
-                                <td class="min-width">
-                                    <p>{{$applicationList->organization_address ?? ''}}</p>
-                                </td>
 
                                 <td>
                                     <div class="action">
-                                        <a href="{{route('admin.applicationList.show', $applicationList)}}" class="text-info">
+                                        <a href="{{route('admin.proposalForm.show', $proposalForm)}}" class="text-info">
                                             <i class="lni lni-eye"></i>
                                         </a>
 

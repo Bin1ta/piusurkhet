@@ -24,7 +24,7 @@ class ProposalForm extends Model
         'spouse_name',
         'address',
     ];
-    public function applicationFiles(): HasMany
+    public function proposalFiles(): HasMany
     {
         return
         $this->hasMany(ApplicationFile::class);
