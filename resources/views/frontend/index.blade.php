@@ -242,7 +242,7 @@
                         @foreach($noticePopups as $noticePopup)
                         @if ($noticePopup->proposal_status === 1)
                         <a href="{{ route('frontend.proposal-page', [$noticePopup->slug])}}" class="btn btn-sm btn-success" title="{{ __('Fill Form') }}">
-                            <i class="fa fa-edit"></i>
+                            <i class="fa fa-edit"></i> {{ __('Fill Form') }}
                         </a>
                     @endif
                             @foreach($noticePopup->files as $file)
