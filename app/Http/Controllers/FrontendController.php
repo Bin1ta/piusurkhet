@@ -140,20 +140,12 @@ class FrontendController extends BaseController
                 return view('frontend.contact');
                 break;
                 case 'proposalForm':
-                    // $documentCategory->load([
-                    //     'mainDocuments' => function ($query) {
-                    //         $query->with('mainDocumentCategory')->whereStatus(1)->orderByDesc('published_date');
-                    //     },
-                    //     'documents' => function ($query) {
-                    //         $query->with('documentCategory')->whereStatus(1)->orderByDesc('published_date');
-                    //     }
-                    // ]);
                     $documents = Document::where('proposal_status', 1)
                         ->where('status', 1)
                         ->orderByDesc('published_date')
                         ->paginate();
 
-                    return view('frontend.proposalList', compact('documents')); // Use plural "documents" for clarity
+                    return view('frontend.proposalList', compact('documents')); 
 
                 break;
             case 'applicationForm':

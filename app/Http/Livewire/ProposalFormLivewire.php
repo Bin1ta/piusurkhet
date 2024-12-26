@@ -61,7 +61,7 @@ class ProposalFormLivewire extends Component
                 foreach ($this->form['files'] as $fileData) {
                     if ($fileData['file']) {
                         $path = $fileData['file']->store('proposal_files', 'public');
-                        $proposal->applicationFiles()->create([
+                        $proposal->proposalFiles()->create([
                             'title' => $fileData['file_name'],
                             'file' => $path,
                         ]);
