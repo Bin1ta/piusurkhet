@@ -35,6 +35,7 @@
                         <th></th>
                         <th>{{__('Title')}}</th>
                         <th>{{__('Published Date')}}</th>
+                        <th class="text-center">{{__('Fill Form') }}</th>
                         <th>{{__('Download')}}</th>
                     </tr>
                     @foreach($subcategoryData->documents->take(3) as $document)
@@ -49,6 +50,14 @@
                                 @endif
                             </td>
                             <td>{{$document -> published_date->toDateString()}}</td>
+                            <td class="text-center">
+                                @if ($document->proposal_status === 1)
+                                    <a href="{{ route('frontend.proposal-page', [$document->slug, 'language' => $language])}}" class="btn btn-sm btn-success    " title="{{ __('Fill Form') }}">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                @endif
+
+                            </td>
                             <td>
                                 <a href="{{route('documentDetail',[$document->slug,'language'=>$language])}}">
                                     <i class="fa fa-download btn btn-primary btn-xs"></i>
@@ -72,6 +81,7 @@
                     <th></th>
                     <th>{{__('Title')}}</th>
                     <th>{{__('Published Date')}}</th>
+                    <th class="text-center">{{ __('Fill Form') }}</th>
                     <th>{{__('Download')}}</th>
                 </tr>
                 @foreach($category->mainDocuments->take(3) as $document)
@@ -80,6 +90,14 @@
                                  width="30" alt=""></td>
                         <td>{{$document -> title}}</td>
                         <td>{{$document -> published_date->toDateString()}}</td>
+                        <td class="text-center">
+                            @if ($document->proposal_status === 1)
+                                <a href="{{ route('frontend.proposal-page', [$document->slug, 'language' => $language])}}" class="btn btn-sm btn-success" title="{{ __('Fill Form') }}">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            @endif
+
+                        </td>
                         <td>
                             <a href="{{route('documentDetail',[$document->slug,'language'=>$language])}}">
                                 <i class="fa fa-download btn btn-primary btn-xs"></i>

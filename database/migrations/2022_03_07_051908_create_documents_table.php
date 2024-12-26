@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('main_document_category_id')->nullable()->constrained('document_categories')->nullOnDelete()->onUpdate('no action');
+
             $table->foreignId('document_category_id')->nullable()->constrained()->nullOnDelete()->onUpdate('no action');
             $table->string('title');
             $table->string('slug');

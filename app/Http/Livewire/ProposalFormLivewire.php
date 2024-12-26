@@ -17,11 +17,13 @@ class ProposalFormLivewire extends Component
         'email' => null,
         'spouse_name' => null,
         'address' => null,
+        'document_id' => null,
         'files' => []
     ];
     public $document;
     public function mount($document)
     {
+        $this->form['document_id'] = $document->id;
         $this->form['files'][] = ['file_name' => '', 'file' => null];
         $this->document = $document;
     }
@@ -44,6 +46,7 @@ class ProposalFormLivewire extends Component
             'form.email' => ['nullable'],
             'form.spouse_name' => ['nullable'],
             'form.address' => ['required'],
+            'form.document_id' => ['required', 'exists:documents,id'],
             'form.files.*.file_name' => ['nullable', 'string'],
             'form.files.*.file' => ['nullable', 'file'],
         ]);
@@ -55,6 +58,7 @@ class ProposalFormLivewire extends Component
                 'email' => $this->form['email'],
                 'spouse_name' => $this->form['spouse_name'],
                 'address' => $this->form['address'],
+                'document_id' => $this->form['document_id'],
             ]);
 
             if (array_key_exists('files', $this->form)) {

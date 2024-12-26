@@ -206,6 +206,16 @@
                     </ul>
                 </li>
             @endcan
+            @can('document_access')
+            <li class="nav-item {{request()->is('admin/proposalForm/*') ? 'active': ''}}">
+                <a href="{{route('admin.proposalForm.index')}}">
+            <span class="icon">
+                <i class="fa fa-edit"></i>
+            </span>
+                    <span class="text">प्रस्ताव फारमहरु</span>
+                </a>
+            </li>
+        @endcan
             {{--Sub Division Employee--}}
             @can('subDivision_employee_access')
                 <li class="nav-item {{request()->is('admin/subDivisions/subDivisionEmployee*') ? 'active': ''}}">
@@ -254,6 +264,8 @@
                     </ul>
                 </li>
             @endcanany
+
+
             @can('bill_access')
                 <li class="nav-item {{request()->is('admin/bill/*') ? 'active': ''}}">
                     <a href="{{route('admin.bill.index')}}">

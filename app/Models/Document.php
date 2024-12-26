@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
@@ -74,17 +75,22 @@ class Document extends Model
 
     public function getPublisherAttribute($value): string
     {
-       if (empty($value)){
-           return 'व्यवस्थापक';
-       }
-       return $value;
+        if (empty($value)) {
+            return 'व्यवस्थापक';
+        }
+        return $value;
     }
 
     public function getPublisherEnAttribute($value): string
     {
-       if (empty($value)){
-           return 'Admin';
-       }
-       return $value;
+        if (empty($value)) {
+            return 'Admin';
+        }
+        return $value;
+    }
+
+    public function proposalForms(): HasMany
+    {
+        return $this->hasMany(ProposalForm::class);
     }
 }

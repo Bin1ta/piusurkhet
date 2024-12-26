@@ -101,6 +101,9 @@ Route::resource('link', LinkController::class);
 Route::resource('bill', BillController::class);
 Route::resource('applicationList', ApplicationListController::class);
 Route::resource('proposalForm', ProposalFormController::class);
+Route::get('document/{document}/proposal-lists', [ProposalFormController::class, 'proposalList'])->name('document.proposalLists');
+Route::get('proposalForm/{proposalForm}/proposalSelected', [ProposalFormController::class, 'proposalSelected'])->name('proposalForm.selected');
+
 //file Deletes
 Route::resource('file', FileController::class)->only('destroy');
 

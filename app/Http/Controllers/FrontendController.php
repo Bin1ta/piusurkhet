@@ -143,9 +143,9 @@ class FrontendController extends BaseController
                     $documents = Document::where('proposal_status', 1)
                         ->where('status', 1)
                         ->orderByDesc('published_date')
-                        ->paginate();
+                        ->get();
 
-                    return view('frontend.proposalList', compact('documents')); 
+                    return view('frontend.proposalList', compact('documents'));
 
                 break;
             case 'applicationForm':
@@ -281,7 +281,7 @@ class FrontendController extends BaseController
     {
         ProposalForm::create($request->validated());
 
-        return back()->with('message', "Form Sent Successfully");
+        return back()->with('message', "Form Sent Successfully heloo");
     }
 
 
