@@ -240,7 +240,11 @@
                     </div>
                     <div class="modal-body">
                         @foreach($noticePopups as $noticePopup)
-
+                        @if ($noticePopup->proposal_status === 1)
+                        <a href="{{ route('frontend.proposal-page', [$noticePopup->slug])}}" class="btn btn-sm btn-success" title="{{ __('Fill Form') }}">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    @endif
                             @foreach($noticePopup->files as $file)
                                 @if($file->extension=='pdf')
                                     <iframe src="{{asset('storage/'.$file->url)}}" frameborder="0"
