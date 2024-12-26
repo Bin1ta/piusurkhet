@@ -1,8 +1,8 @@
 <div class="container my-4">
     <div class="card p-4 shadow-sm">
-        <h4 class="card-title mb-3"> फारम भर्नुहोस्</h4>
+
         <div class="mb-3">
-            <h5><strong>{{ request()->language == 'en' ? $document['title_en'] : $document['title'] }}को फारम</strong>
+            <h5><strong>{{ request()->language == 'en' ? $document['title_en'] : $document['title'] }}को फारम भर्नुहोस्</strong>
             </h5>
         </div>
         <form wire:submit.prevent="submit">
