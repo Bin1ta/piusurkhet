@@ -34,7 +34,7 @@
                         <th>{{ __('Category') }}</th>
                         <th>{{ __('Published Date') }}</th>
                         <th>{{ __('Publisher') }}</th>
-                        <th class="text-center">{{ __('Fill From') }}</th>
+                        <th class="text-center">{{ __('Fill Form') }}</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -60,7 +60,7 @@
                             @else
                                 <td>{{ $document->publisher }}</td>
                             @endif
-                            <td>
+                            <td class="text-center">
                                 @if ($document->proposal_status === 1)
                                     <a href="{{ route('frontend.proposal-page', [$document->slug, 'language' => $language])}}" class="btn btn-sm btn-info" title="{{ __('Fill Form') }}">
                                         <i class="fa fa-edit"></i>
