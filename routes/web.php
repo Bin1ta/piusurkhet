@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FrontendController;
+use App\Models\ProposalForm;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,6 +34,7 @@ class listing
         Route::get('officeDetail/{officeDetail:slug}', [FrontendController::class, 'officeDetails'])->name('officeDetail');
         Route::get('documentCategory/{documentCategory:slug}', [FrontendController::class, 'documentCategory'])->name('documentCategory');
         Route::get('document/{document:slug}', [FrontendController::class, 'documentDetail'])->name('documentDetail');
+        Route::get('/proposalPage/{document:slug}',[FrontendController::class,'proposalPage'])->name('frontend.proposal-page');
 
         Route::get('detail/{slug}', [FrontendController::class, 'staticMenus'])->name('static');
 
@@ -53,6 +55,7 @@ class listing
         Route::post('proposalForm', [FrontendController::class, 'proposalForm'])->name('proposalForm');
         Route::post('applicationForm', [FrontendController::class, 'applicationForm'])->name('applicationForm');
         Route::get('faq', [FrontendController::class, 'faq'])->name('faq');
+
 
     }
 }

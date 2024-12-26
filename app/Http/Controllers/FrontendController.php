@@ -139,13 +139,26 @@ class FrontendController extends BaseController
             case 'contactUs':
                 return view('frontend.contact');
                 break;
-            case 'proposalForm':
-                $document= Document::where('proposal_status',1)->latest()->first();
-                return view('frontend.proposal-form',compact('document'));
+                case 'proposalForm':
+                    // $documentCategory->load([
+                    //     'mainDocuments' => function ($query) {
+                    //         $query->with('mainDocumentCategory')->whereStatus(1)->orderByDesc('published_date');
+                    //     },
+                    //     'documents' => function ($query) {
+                    //         $query->with('documentCategory')->whereStatus(1)->orderByDesc('published_date');
+                    //     }
+                    // ]);
+                    $documents = Document::where('proposal_status', 1)
+                        ->where('status', 1)
+                        ->orderByDesc('published_date')
+                        ->paginate();
+
+                    return view('frontend.proposalList', compact('documents')); // Use plural "documents" for clarity
+
                 break;
-                case 'applicationForm':
-                    return view('frontend.application-list');
-                    break;
+            case 'applicationForm':
+                return view('frontend.application-list');
+                break;
             case 'photoGallery':
                 $photoAlbums = PhotoGallery::with('photos')->latest()->get();
                 return view('frontend.gallery.gallery', compact('photoAlbums'));
@@ -257,7 +270,21 @@ class FrontendController extends BaseController
         return back()->with('message', "Message Sent Successfully");
     }
 
+    public function proposalPage(Document $document)
+    {
 
+        $document->load('files');
+
+        $relatedDocuments = Document::with('mainDocumentCategory')->where('id', '!=', $document->id)
+            ->where(function ($query) use ($document) {
+                $query->where('document_category_id', $document->document_category_id);
+                $query->where('main_document_category_id', $document->main_document_category_id);
+            })
+            ->orderByDesc('published_date')
+            ->limit(5)
+            ->get();
+        return view('frontend.proposal-form', compact('document','relatedDocuments'));
+    }
     public function proposalForm(StoreProposalForm $request)
     {
         ProposalForm::create($request->validated());

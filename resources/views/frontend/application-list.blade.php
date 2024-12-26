@@ -15,9 +15,6 @@
                          <h3 class="mt-4 text-center">!!! सुचिकृत फारम खुलेको छैन !!!</h3>
                         @endif
 
-
-
-
                     </div>
                     <!-- end card -->
 
