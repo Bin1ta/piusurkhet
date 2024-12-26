@@ -5,13 +5,9 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('welcome') }}"><i class="fa fa-home"></i></a></li>
-                {{-- <li class="breadcrumb-item active" aria-current="page">
-                    @if (request()->language == 'en')
-                        {{ $documentCategory->title_en }}
-                    @else
-                        {{ $documentCategory->title }}
-                    @endif
-                </li> --}}
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{__('Proposal Forms')}}
+                </li>
             </ol>
         </nav>
     </div>
@@ -19,11 +15,7 @@
         <div class="well-heading"
             style="border-left: 10px solid #b31b1b; position: relative;background-color: {{ $colors->nav }};">
             <i class="fa fa-newspaper-o"></i>
-            {{-- @if (request()->language == 'en')
-                {{ $documentCategory->title_en }}
-            @else
-                {{ $documentCategory->title }}
-            @endif --}}
+                {{__('Proposal Forms')}}
         </div>
         <div class="table-responsive">
             <table class="table table-striped table-hover">
@@ -34,7 +26,7 @@
 
                         <th>{{ __('Published Date') }}</th>
                         <th>{{ __('Publisher') }}</th>
-                        <th>{{ __('Fill From') }}</th>
+                        <th></th>
 
                     </tr>
                 </thead>
